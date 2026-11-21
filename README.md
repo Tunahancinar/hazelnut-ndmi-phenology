@@ -63,4 +63,4 @@ Code: MIT licence (see LICENSE). Data tables: Creative Commons Attribution 4.0 I
 
 ## Citation
 
-Please cite the article and this repository (Zenodo DOI to be added).
+Please cite the article and this repository: https://doi.org/10.5281/zenodo.24423674
