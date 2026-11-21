@@ -57,6 +57,13 @@ Python
 
 The scripts were run with Python 3.11, scikit-learn, XGBoost, LightGBM, CatBoost and shap. They were written for the original working environment, so input and output paths are given as command line arguments or as absolute paths at the top of each script and must be adapted. Some comments and variable names are in Turkish.
 
+## Reproducibility
+
+- `data/fold_assignment.csv` gives, for every parcel, the 10 km block, the 20 km block and the 0.1° ERA5-Land cell, together with the fold (0 to 4) used in the corresponding spatial cross validation. Folds were formed with scikit-learn GroupKFold(5).
+- Random seeds: 42 for all models and SHAP subsamples, 1 for the block bootstraps, 7 for the random 30% subsample drawn in Earth Engine (`randomColumn('r', 7)`).
+- The three spring references (April to May median, May to June median, NDMI at the spring NDVI peak) are produced by `gee_parcel_extraction.js`, `gee_parcel_ref.js`, `gee_mayjune_reference.js` and `gee_spring_peak_reference.js`.
+- `32_final_checks.py`: buffered and ERA5 cell grouped spatial validation, temporal tests with selection on the training years, 2025 spring and summer components, peak date diagnostics and parcel size sensitivity.
+
 ## Licence
 
 Code: MIT licence (see LICENSE). Data tables: Creative Commons Attribution 4.0 International (CC BY 4.0).
